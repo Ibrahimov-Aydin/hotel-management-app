@@ -1,0 +1,58 @@
+### 1. Сбор требований — ключевые моменты из твоего описания
+
+- **Пользователи — сотрудники отеля, с обязательной авторизацией**
+- Регистрация новых пользователей — только внутри приложения (без внешней регистрации)
+- Профиль пользователя: аватар, имя, смена пароля
+- **Кабины (cabins):** просмотр (таблица с фото, имя, вместимость, цена, скидка), создание, редактирование, удаление
+- **Бронирования (bookings):** просмотр (таблица с датами, статусом, оплатой, кабиной и гостем), фильтрация по статусу
+- Статусы бронирований: `unconfirmed`, `checked in`, `checked out`
+- Управление бронированиями: удаление, регистрация заезда/выезда, подтверждение оплаты
+- Добавление завтраков при заезде
+- **Данные гостей:** имя, email, ID, национальность, флаг страны
+- **Дашборд:**
+    - список заезжающих/выезжающих сегодня
+    - статистика по бронированиям, продажам, заездам, загрузке отеля
+    - графики продаж и статистики длительности проживания
+- Настройки приложения: цена завтрака, ограничения по ночам и гостям
+- Темная тема
+
+### Features category
+- Authentication
+- Cabins
+- Bookings
+- Check in | out
+- Guests
+- Dashboard
+- Settings
+
+### Pages
+- Dashboard
+- Bookings
+- Cabins
+- Check in | out
+- Settings
+- Login
+- Users
+- Account
+
+### Tech
+1. React-Router
+2. Styled Components
+3. React Query
+4. Context API
+5. React Hook Form
+6. React Icons
+7. React Hot Toast
+8. ReCharts
+9. date-fns
+10. Supabase
+
+
+### Git
+1. git add .
+2. git commit -m " "
+3. git push
+4. git checkout -b feature/feature name
+5. git push -u origin feature/feature name
+6. git checkout (brunch arasinda kecid)
+7. git pull origin main|else 
