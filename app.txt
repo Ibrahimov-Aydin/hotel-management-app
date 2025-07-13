@@ -1,6 +1,6 @@
 ### 1. Сбор требований — ключевые моменты из твоего описания
 
-- **Пользователи — сотрудники отеля, с обязательной авторизацией**
+- ** Пользователи — сотрудники отеля, с обязательной авторизацией**
 - Регистрация новых пользователей — только внутри приложения (без внешней регистрации)
 - Профиль пользователя: аватар, имя, смена пароля
 - **Кабины (cabins):** просмотр (таблица с фото, имя, вместимость, цена, скидка), создание, редактирование, удаление
@@ -25,6 +25,13 @@
 - Dashboard
 - Settings
 
+### State Domains/Slices
+- Bookings - (Bookings, Dashboard, Check in and out)
+- Cabins
+- Guests
+- Settings
+- User - (Authentication)
+
 ### Pages
 - Dashboard
 - Bookings
@@ -34,6 +41,8 @@
 - Login
 - Users
 - Account
+
+
 
 ### Tech
 1. React-Router
@@ -56,3 +65,10 @@
 5. git push -u origin feature/feature name
 6. git checkout (brunch arasinda kecid)
 7. git pull origin main|else 
+
+// Gelecekde istifade elemek olar.
+1. midjourney - ai dir hardaki sekiller yaratmaq olar.
+
+// React Queryda deyisikilik ler v4 den ferqli olanlar.
+1. isLoading -> isPending
+2. cacheTime -> gcTime
