@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 import type { Tables } from '../../types/supabase';
+import { formatCurrency } from '../../utils/helpers';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { deleteCabin } from '../../services/apiCabins';
+import toast from 'react-hot-toast';
 
 type Cabin = Tables<'cabins'>;
 
@@ -47,16 +51,41 @@ const Discount = styled.div`
 `;
 
 export default function CabinRow({ cabin }: CabinRowProps) {
-  const { name, maxCapacity, image, discount, regularPrice } = cabin;
+  const {
+    id: cabinId,
+    name,
+    maxCapacity,
+    image,
+    discount,
+    regularPrice,
+  } = cabin;
+
+  const queryClient = useQueryClient();
+
+  const { isPending: isDeleting, mutate } = useMutation({
+    mutationFn: deleteCabin,
+    onSuccess: () => {
+      // alert('Cabin are sucsessfully deleted!');
+      toast.success('Cabin successfully deleted!');
+      queryClient.invalidateQueries({
+        queryKey: ['cabins'],
+      });
+    },
+    onError: (err) => {
+      toast.error(err.message);
+    },
+  });
 
   return (
     <TableRow role="row">
       <Img src={image ?? ''} />
       <Cabin>{name}</Cabin>
       <div>Fits up to {maxCapacity}</div>
-      <Price>{regularPrice}</Price>
-      <Discount>{discount}</Discount>
-      <button>Delete</button>
+      <Price>{formatCurrency(regularPrice)}</Price>
+      <Discount>{formatCurrency(discount)}</Discount>
+      <button disabled={isDeleting} onClick={() => mutate(cabinId)}>
+        Delete
+      </button>
     </TableRow>
   );
 }
